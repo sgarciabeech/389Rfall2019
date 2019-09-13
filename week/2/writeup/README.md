@@ -32,4 +32,4 @@ The website contains the hidden file robots.txt [here](http://wattsamp.net/robot
 
 ### Part 2 (75 pts)
 
-Now that I had an email, an IP address and a list of potential ports, I began by attempting netcat connections with each. Upon resolving my difficulties with nmap, I determined that it was port 13367 to which I could establish a connection. After that, it was simply a matter of parsing the captcha with regex to send back the correct answer, and running a brute force attack by iterating through the passwords in rocky.txt to determine the right one.
+Now that I had an email, an IP address and a list of potential ports, I began by attempting netcat connections with each. Upon resolving my difficulties with nmap, I determined that it was port 13367 to which I could establish a connection. After that, it was simply a matter of parsing the captcha with regex to send back the correct answer, and running a brute force attack by iterating through the passwords in rocky.txt to determine the right one. TBC
