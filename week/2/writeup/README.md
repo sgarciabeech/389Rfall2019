@@ -35,6 +35,7 @@ Flags:
 - *CMSC389R-{LOOKING_CLOSELY_PAYS}
 - *CMSC389R-{Do_you-N0T_See_this}
 - *CMSC389R-{html_h@x0r_lulz}
+- *CMSC389R-{0M3G4LUL_G3T_pWN3d_N00b}
 
 ### Part 2 (75 pts)
 
