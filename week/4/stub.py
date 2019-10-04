@@ -5,6 +5,7 @@ host = "wattsamp.net"
 port = 1337
 
 def help_message():
+    print("POSSIBLE COMMANDS~~~")
     print("shell: create an interactive shell")
     print("pull <remote-path> <local-path>: download files")
     print("help: shows this help menu")
@@ -21,7 +22,7 @@ def execute_cmd(cmd, pwd):
         elif len(cmd.split()) == 1:
             pwd = "/"
         else:
-            print("Error")
+            help_message()
 
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, port))
@@ -42,10 +43,10 @@ def run_shell():
     while cmd != "quit" and cmd != "exit":
         # print help message
         if cmd.split()[0] == "help":
-            if len(cmd.split()) == 1:
-                help_message()
-            else:
-                print("help does not take any commands, try again")
+            if len(cmd.split()) != 1:
+                print("help does not take any commands")
+
+            help_message()
 
         # copy file onto local machine
         elif cmd.split()[0] == "pull":
@@ -58,7 +59,7 @@ def run_shell():
                 os.system(attack)
 
             else:
-                print("pull takes two arguments: the remote path location and the local path location")
+                help_message()
 
         # run any other command
         else:
