@@ -4,16 +4,9 @@ import sys
 import struct
 import datetime
 
-
 # You can use this method to exit on failure conditions.
 def bork(msg):
     sys.exit(msg)
-
-def ascii_convert(data):
-    try:
-        return str(hex(data))[2:].decode("hex")[::-1]
-    except:
-        bork("Data %d cannot be converted to ASCII text!" % hex(data))
 
 # Some constants. You shouldn't need to change these.
 MAGIC = 0x8BADF00D
@@ -30,8 +23,6 @@ SECTION_PNG = 0x8
 SECTION_GIF87 = 0x9
 SECTION_GIF89 = 0xA
 
-
-
 if len(sys.argv) < 2:
     sys.exit("Usage: python stub.py input_file.fpff")
 
@@ -47,12 +38,11 @@ idx = 0
 
 magic, version = struct.unpack("<LL", data[idx:(idx + 8)])
 idx += 8
-time = struct.unpack("<L", data[idx:(idx + 4)])
+time = struct.unpack("<L", data[idx:(idx + 4)])[0]
 idx += 4
 author = struct.unpack(">cccccccc", data[idx:(idx + 8)])
 idx += 8
-sections = struct.unpack("<L", data[idx:(idx + 4)])
-sections = sections[0]
+sections = struct.unpack("<L", data[idx:(idx + 4)])[0]
 idx += 4
 
 if magic != MAGIC:
@@ -62,7 +52,7 @@ if version != VERSION:
     bork("Bad version! Got %d, expected %d" % (int(version), int(VERSION)))
 
 try:
-    time = datetime.datetime.fromtimestamp(time[0])
+    time = datetime.datetime.fromtimestamp(time)
 except:
     bork("Time is not a valid UNIX timestamp! - %d" % int(time[0]))
 
@@ -158,21 +148,18 @@ for i in range(1, sections + 1):
         output = ""
 
         fh = open(file_name, "wb")
-
         fh.write(bytearray(sig))
 
         for i in range(0, iter):
             output += str(struct.unpack("!I", data[idx:(idx + 4)])[0])
             idx += 4
 
-
         fh.write(output.decode('base64'))
 
         #png_iend = [73, 69, 78, 68]
-
         #fh.write(bytearray(png_iend))
-        fh.close()
 
+        fh.close()
 
     else:
         bork("Stype %d is not an approved type! " % int(stype))
