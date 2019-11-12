@@ -52,15 +52,15 @@ fl1nch
 
 3. List each section, giving us the data in it and its type.
 
-Section 1: ASCII Data    
-- Hey you, keep looking :)    
-Section 2: Coordinates    
-- 52.336035, 4.880673  
-Section 3: PNG Image    
-Section 4: ASCII Data    
-- }R983CSMC_perg_tndid_u0y_yllufep0h{-R983CSMC    
-Section 5: ASCII Data    
-- Q01TQzM4OVIte2hleV9oM3lfeTBVX3lvdV9JX2RvbnRfbGlrZV95b3VyX2Jhc2U2NF9lbmNvZGluZ30=  
+Section 1: ASCII Data  
+`Hey you, keep looking :)`    
+Section 2: Coordinates  
+`52.336035, 4.880673`  
+Section 3: PNG Image  
+Section 4: ASCII Data  
+`}R983CSMC_perg_tndid_u0y_yllufep0h{-R983CSMC`  
+Section 5: ASCII Data  
+`Q01TQzM4OVIte2hleV9oM3lfeTBVX3lvdV9JX2RvbnRfbGlrZV95b3VyX2Jhc2U2NF9lbmNvZGluZ30=  `
 
 4. Report at least one flag hidden in greetz.fpff. Any other flag found will count as bonus points towards the competition portion of the syllabus.
 
