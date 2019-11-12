@@ -54,10 +54,10 @@ fl1nch
 
 Section 1: ASCII Data  
 - Hey you, keep looking :)  
-Section 2: Coordinates
-- 52.336035, 4.880673
+Section 2: Coordinates  
+- 52.336035, 4.880673  
 Section 3: PNG Image  
-Section 4: ASCII Data
+Section 4: ASCII Data  
 - }R983CSMC_perg_tndid_u0y_yllufep0h{-R983CSMC  
 Section 5: ASCII Data  
 - Q01TQzM4OVIte2hleV9oM3lfeTBVX3lvdV9JX2RvbnRfbGlrZV95b3VyX2Jhc2U2NF9lbmNvZGluZ30=  
