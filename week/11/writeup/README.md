@@ -26,6 +26,39 @@ Complete all 6 levels of:
 
 Produce a writeup. We will not take off points for viewing the source code and/or viewing hints, but we strongly discourage reading online write-ups as that defeats the purpose of the homework.
 
+Level one:
+
+Input: `<script>alert(0);</script>`
+Since the HTML was processing the raw input, I could just insert a script tag to execute Javascript.
+
+Level 2:
+
+Input: `<img src="nope" onerror="alert(0);"/>`
+
+Inputting a script tag did not work here, but Javascript can also be executed via image tags' onerror attribute.
+
+Level 3:
+
+Link: `https://xss-game.appspot.com/level3/frame#1.jpg' />";<script>alert(0);</script>`
+
+The HTML was choosing the image to display based on the URL specifications, so by escaping the image tag and inserting a script tag, Javascript could be executed.
+
+Level 4:
+
+Input: `3' + alert(0) + '`
+
+The raw input was being processed in the Javascript code, so by escaping a command and appending an alert, the alert would be executed.
+
+Level 5:
+
+Link: `https://xss-game.appspot.com/level5/frame/signup?next=javascript:alert(0)`
+
+The next link chose where to go next with the href attribute, but href can also execute Javascript upon the click of the link.
+
+Level 6:
+
+
+
 ### Format
 
 Part 1 and 2 can be answered in bullet form or full, grammatical sentences.
