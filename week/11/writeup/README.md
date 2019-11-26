@@ -1,11 +1,11 @@
 # Writeup 1 - Web I
 
-Name: *PUT YOUR NAME HERE*
-Section: *PUT YOUR SECTION NUMBER HERE*
+Name: *Sara Garcia-Beech*
+Section: *0101*
 
 I pledge on my honor that I have not given or received any unauthorized assistance on this assignment or examination.
 
-Digital acknowledgement: *PUT YOUR NAME HERE*
+Digital acknowledgement: *Sara Garcia-Beech*
 
 
 ## Assignment details
@@ -26,9 +26,10 @@ Complete all 6 levels of:
 
 Produce a writeup. We will not take off points for viewing the source code and/or viewing hints, but we strongly discourage reading online write-ups as that defeats the purpose of the homework.
 
-Level one:
+Level 1:
 
 Input: `<script>alert(0);</script>`
+
 Since the HTML was processing the raw input, I could just insert a script tag to execute Javascript.
 
 Level 2:
