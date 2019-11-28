@@ -19,6 +19,8 @@ Such a Quick Little, website!
 
 [http://142.93.136.81:5000/](http://142.93.136.81:5000/)
 
+This website was protected from SQL errors by checking that the input (the information after id= in the URL) did not contain the keywords 'or' or 'information', so although it did use blacklisting techniques, it did not appear to be sanitizing possible SQL input. Input of `id=1' -- comment'` returned the same thing as `id=1`, as the code was ignoring the information after the comment, rather than treating the whole input as the id tag. To get information about the SQL tables stored, an input similar to `1'; SELECT * FROM items; -- '`, with the right arguments, might execute the given SQL command.
+
 ### Part 2 (60 Pts)
 Complete all 6 levels of:
 
